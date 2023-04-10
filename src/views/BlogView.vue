@@ -1,9 +1,16 @@
 <template>
     <div class="container-fluid">
         <section id="page-header" class="blog-header">
-            <h2>/readmore</h2>
-            <p> Read all case studies about our products!</p>
+            <h2 style="color:#040859; font-weight: 900">/readmore</h2>
+            <p style="color:#040859;font-weight: 500;"> Read all case studies about Fish and Fishing!</p>
         </section>
+        <section id="about-app" class="section-p1">
+    <h3>This is How Fishermen Catch Hundred Tonnes of Fish. Modern Fish Processing & Fishing Net Video</h3>
+    
+    <div class="video">
+    <video autoplay muted loop src="" alt=""></video>
+    </div>
+ </section>
         <section id="blog">
             <div v-if="profileAdmin" class="toggle-edit">
                 <span>Toggle Editing Post</span>
@@ -36,55 +43,11 @@
 </template>
 <script>
 import BlogCard from "../components/blogs/BlogCard.vue";
-// import items from '../cart.json'
-// import ReadMore from '@/components/ReadMore.vue'
-// @ is an alias to /src
 export default {
   name: 'BlogView',
   components: {
     BlogCard
 },
-// data () {
-//     return {
-//         sampleBlogCards: [
-//         {
-//             id: 1,
-//             image: "b1.png",
-//             title: "Short elegant dresses: where to find the best party dresses?",
-//             blogHTML: "Short elegant dresses: where to find the best party dresses? Here we are girls, finally the moment we have been waiting for more than a year is coming: the @.",
-//             blogDate: "7/7/2022"
-//         },
-//         {
-//             id: 2,
-//             image: "b2.png",
-//             title: "What to choose for a perfect mountain clothing",
-//             blogHTML: "What to choose for a perfect mountain clothing Hello Zagulini we are getting closer and closer to Christmas and in this period I am thinking of the snow, of the walks @.",
-//             blogDate: "7/7/2022"
-//         },
-//         {
-//             id: 3,
-//             image: "b3.jpg",
-//             title: "Women's T-shirt for a super trendy look with Replay",
-//             blogHTML: "Women's T-shirt for a super trendy look with Replay Good morning zaguline, today I will answer one of the questions you are asking me in this period !!! Trends for @.",
-//             blogDate: "7/7/2022"
-//         },
-//         {
-//             id: 4,
-//             image: "b4.jpg",
-//             title: "What will be the new trends for MFW? Advances and program",
-//             blogHTML: "What will be the new trends for MFW? Anticipations and program There are only a few days left until the beginning of Milan Fashion Week, and the time has come to find out what they will be @.",
-//             blogDate: "7/7/2022",
-//         },
-//         {
-//             id: 5,
-//             image: "b5.jpg",
-//             title: "Here is Crepetray TM the ultra light sneakers",
-//             blogHTML: "Here is Crepetray TM the ultra light sneakers My dearest Zaguline, Spring is now here, even if you don't feel very much because, I must admit, that this cold Milanese @.",
-//             blogDate: "7/7/2022",
-//         }
-//     ]
-//     }
-// },
 computed: {
     blogPosts() {
        return this.$store.state.blogPosts;

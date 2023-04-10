@@ -1,8 +1,8 @@
 <template>
   <div class="container-fluid">
-    <section id="page-header" class="about-header">
-    <h2>#lets talk</h2>
-    <p> LEAVE A MESSAGE. we love to here from you</p>
+    <section  id="page-header" class="blog-header">
+    <h2 style="color:#040859; font-weight: 900">#lets talk</h2>
+    <p style="color:#040859;font-weight: 500;"> LEAVE A MESSAGE. we love to here from you</p>
     </section>
     <section id="contact-details" class="section-p1">
         <div class="details">
@@ -54,15 +54,19 @@
         <div class="people">
             <div>
             <img src="@/assets/img/banner/BuyoneFree_65.jpg" alt="">
-            <p><span>Musunza Festus</span>Senior Marketing Manager <br> Phone: +25494711950 <br> Email: musunzafestus2019@gmail.com</p>
+            <p><span>Musunza Festus</span>ICT Manager <br> Phone: +254794711950 <br> Email: musunzafestus2019@gmail.com</p>
             </div>
             <div>
-            <img src="@/assets/img/banner/BuyoneFree_65.jpg" width=10px height=15px alt="">
-            <p><span>Kijana Festo</span>Delivery Manager <br> Phone: +25494711950 <br> Email: musunzafestus2019@gmail.com</p>
+            <img src="@/assets/img/banner/BuyoneFree_65.jpg" width=10px height=15px alt="Muye">
+            <p><span>Kudura Muye</span>Senior Marketing Manager <br> Phone: +254703181936 <br> Email: musunzafestus2019@gmail.com</p>
             </div>
             <div>
-            <img src="@/assets/img/banner/BuyoneFree_65.jpg" width=10px height=15px alt="">
-            <p><span>Daniel Musunza</span>ICT Manager <br> Phone: +25494711950 <br> Email: musunzafestus2019@gmail.com</p>
+            <img src="@/assets/img/banner/BuyoneFree_67.jpg" width=10px height=15px alt="">
+            <p><span>Brian Murimi</span>Finance Manager <br> Phone: +254703326479 <br> Email: brianmurimispony@gmail.com</p>
+            </div>
+            <div>
+            <img src="@/assets/img/banner/BuyoneFree_68.jpg" width=10px height=15px alt="">
+            <p><span>Emmanuel Atundo</span>Delivery Manager <br> Phone: +254748470551 <br> Email: emmanuelatundo3@gmail.com</p>
             </div>
         </div>
     </section>

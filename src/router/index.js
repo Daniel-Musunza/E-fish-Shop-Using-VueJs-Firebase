@@ -5,12 +5,9 @@ import HomeView from '../components/product/HomeView.vue';
 import ShopView from '../components/product/ShopView.vue';
 import ShopView2 from '../components/product/ShopView2.vue';
 import ShopView3 from '../components/product/ShopView3.vue';
-import TrendyTShirts from '../components/product/TrendyTShirts.vue';
 import BuyOneFree from '../components/product/BuyOneFree.vue';
-import UpcommingSeason from '../components/product/UpcommingSeason.vue';
-import RepairView from '../components/product/RepairView.vue';
-import MegaSeasonsale from '../components/product/MegaSeasonsale.vue';
-import ShoesView from '../components/product/ShoesView.vue';
+import DagaaView from '../components/product/DagaaView.vue';
+import CookedFish from '../components/product/CookedFish.vue';
 import BlogView from '../views/BlogView.vue';
 import ProfileView from '../views/ProfileView.vue';
 import AboutView from '../views/AboutView.vue';
@@ -39,7 +36,7 @@ const routes = [
     component: CartView,
     meta: {
       title: "Cart",
-      requiresAuth: true,
+      requiresAuth: false,
     }
   },
   {
@@ -47,7 +44,7 @@ const routes = [
     component: WishList,
     meta: {
       title: "Wish-list",
-      requiresAuth: true,
+      requiresAuth: false,
     }
   },
   {
@@ -83,7 +80,7 @@ const routes = [
     meta: {
       title: "Add-Admin",
       requiresAuth: true,
-      requiresAdmin: true,
+      // requiresAdmin: true,
     }
 
   },
@@ -93,7 +90,7 @@ const routes = [
     meta: {
       title: "Administration",
       requiresAuth: true,
-      requiresAdmin: true,
+      // requiresAdmin: true,
     }
   },
   {
@@ -102,7 +99,7 @@ const routes = [
     meta: {
       title: "Messages",
       requiresAuth: true,
-      requiresAdmin: true,
+      // requiresAdmin: true,
     }
   },
   {
@@ -111,7 +108,7 @@ const routes = [
     meta: {
       title: "CreateBlog",
       requiresAuth: true,
-      requiresAdmin: true,
+      // requiresAdmin: true,
     }
   },
   {
@@ -129,7 +126,7 @@ const routes = [
     component: ShopView,
     meta: {
       title: "Shop",
-      requiresAuth: true,
+      requiresAuth: false,
     }
   },
   {
@@ -138,7 +135,7 @@ const routes = [
     component: ShopView2,
     meta: {
       title: "Shop",
-      requiresAuth: true,
+      requiresAuth: false,
     }
   },
   {
@@ -147,16 +144,7 @@ const routes = [
     component: ShopView3,
     meta: {
       title: "Shop",
-      requiresAuth: true,
-    }
-  },
-  {
-    path: '/t-shirts',
-    name: 't-shirts',
-    component: TrendyTShirts,
-    meta: {
-      title: "t-shirts",
-      requiresAuth: true,
+      requiresAuth: false,
     }
   },
   {
@@ -165,61 +153,25 @@ const routes = [
     component: BuyOneFree,
     meta: {
       title: "shop",
-      requiresAuth: true,
+      requiresAuth: false,
     }
   },
   {
-    path: '/upcomming-season',
-    name: 'upcomming-season',
-    component: UpcommingSeason,
+    path: '/dagaa',
+    name: 'dagaa',
+    component: DagaaView,
     meta: {
       title: "shop",
-      requiresAuth: true,
+      requiresAuth: false,
     }
   },
   {
-    path: '/repair',
-    name: 'repair',
-    component: RepairView,
+    path: '/cookedFish',
+    name: 'cookedFish',
+    component: CookedFish,
     meta: {
       title: "shop",
-      requiresAuth: true,
-    }
-  },
-  {
-    path: '/mega-season-sale',
-    name: 'mega-season-sale',
-    component: MegaSeasonsale,
-    meta: {
-      title: "shop",
-      requiresAuth: true,
-    }
-  },
-  {
-    path: '/shoes',
-    name: 'shoes',
-    component: ShoesView,
-    meta: {
-      title: "shop",
-      requiresAuth: true,
-    }
-  },
-  {
-    path: '/winter-collection',
-    name: 'winter-collection',
-    component: "WinterCollection",
-    meta: {
-      title: "shop",
-      requiresAuth: true,
-    }
-  },
-  {
-    path: '/summer',
-    name: 'summer',
-    component: "SummerCollection",
-    meta: {
-      title: "shop",
-      requiresAuth: true,
+      requiresAuth: false,
     }
   },
   {
@@ -237,7 +189,7 @@ const routes = [
     component: CheckOut,
     meta: {
       title: "Checkout",
-      requiresAuth: true,
+      requiresAuth: false,
     }
   },
   {
@@ -341,7 +293,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 
-  document.title = `  ${to.meta.title} | The Online Boutique `;
+  document.title = `  ${to.meta.title} | Samaki Online `;
   next();
 });
 

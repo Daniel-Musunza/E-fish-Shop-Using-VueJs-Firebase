@@ -1,10 +1,10 @@
 <template>
     <div class="container-fluid">
         <section id="page-header">
-           <h2>/Stayhome</h2>
-           <p> Save more with coupons & up to 70% off!</p>
+           <h2> /Stayhome </h2>
+           <p> Save more with coupons & up to 70% off! </p>
         </section>
-        <div v-if="productItems.length">
+        <div v-if="productItems.length>16">
         <div v-if="profileAdmin" class="toggle-edit">
           <span>Toggle Editing Product</span>
           <input type="checkbox" v-model="editProducts" />
@@ -38,12 +38,12 @@
         </div>
         <div v-else>
             <h1>No more Products</h1>
+        </div>
         <section id="pagination" class="section-p1">
             <router-link to="/shop">1</router-link>
             <router-link to="/shop2">2</router-link>
             <router-link to="/shop3"><i class="fa-solid fa-arrow-right"></i></router-link>
         </section>
-        </div>
     </div>
     </template>
     <script>

@@ -17,7 +17,9 @@ h2 {
     line-height: 54px;
     color:#222;
 }
-
+/* .container {
+    background-color: #041e42;
+} */
 h4 {
     font-size: 20px;
     color: #222;
@@ -30,7 +32,7 @@ h6 {
 
 p {
     font-size: 16px;
-    color: #465b52;
+    color: #040859;
     margin: 15px 0 20px 0;
 }
 .section-p1{
@@ -129,8 +131,10 @@ color: #088178;
 }
 /*home page*/
 #hero{
-    background-image: url("@/assets/img/Background.jpg");
-    height: 90vh;
+    background-image: url("@/assets/img/Background.png");
+    background-repeat: no-repeat;
+    /* background-size: auto; */
+    height: 100vh;
     width: 100%;
     background-size: cover;
     background-position: top 25% right 0;
@@ -274,18 +278,20 @@ background-color: #cdebbc;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url("@/assets/img/banner/BlackBackground.jpg");
+    background-image: url("@/assets/img/banner/BlackBackgroundFish.jpg");
+    background-repeat: no-repeat;
+    /* background-size: auto; */
     width: 100%;
     height:40vh;
     background-size: cover;
     background-position: center;
 }
 #banner h4{
-    color: #fff;
+    color: rgb(65, 43, 163);
     font-size: 16px;
 }
 #banner h2{
-    color: #fff;
+    color: rgb(65, 43, 163);
     font-size: 30px;
     padding: 10px 0;
 }
@@ -339,46 +345,6 @@ background-color: #cdebbc;
 #sm-banner .banner-box:hover button {
     background: #088178;
     border: 1px solid #088178;
-}
-#banner3{
-    display:flex;
-    justify-content: space-between;
-    flex-wrap:wrap;
-    padding: 0 80px;
-}
-#banner3 .banner-box{
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: flex-start;
-    background-image: url("@/assets/img/banner/SeasonSale.jpg");
-    /* min-width: 30%; */
-    height:40vh;
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-    margin-bottom:20px;
-    width: 350px;
-    border-radius: 15px;
-}
-#banner3 .banner-box2{
-    width: 350px;
-    background-image: url("@/assets/img/banner/NewFootWareCollection.jpg");
-}
-#banner3 .banner-box3{
-    width: 350px;
-    background-image: url("@/assets/img/banner/Tshirts.jpg");
-
-}
-#banner3 h2{
-    color: #fff;
-    font-weight: 900;
-    font-size:22px;
-}
-#banner3 h3{
-    color: #ec544e;
-    font-weight: 800;
-    font-size:15px;
 }
 #newsletter {
     display: flex;
@@ -468,7 +434,7 @@ color:#fff;
     }
     /*Shop page*/
     #page-header {
-        background-image: url("@/assets/img/banner/BlackBackground.jpg");
+        background-image: url("@/assets/img/banner/BlackBackgroundFish.jpg");
         width: 100%;
         height: 40vh;
         background-size: cover;
@@ -543,14 +509,17 @@ display: block;
 }
 #prodetails .single-pro-details button{
     background:#088178;
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
 #prodetails .single-pro-details span{
   line-height: 25px;
 }
 /*blog page*/
 #page-header.blog-header{
-    background-image: url("@/assets/img/blog/RainbowBackground.jpg");
+    background-image: url("@/assets/img/blog/RainbowBackground1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:#040859;
 }
 #blog{
     padding: 150px 150px 0 150px;
@@ -648,9 +617,6 @@ margin-right: 40px;
 
 }
 /*About page comment */
-#page-header .about-head {
-    background-image: url("@/assets/img/about/aboutBackground.jpg");
-}
 #about-head {
     display:flex;
     align-items: center;
@@ -666,8 +632,8 @@ margin-right: 40px;
     text-align: center;
 }
 #about-app .video {
-    width: 40%;
-    height: 100%;
+    width: 80%;
+    height: 30%;
     margin: 30px auto 0 auto;
 
 }

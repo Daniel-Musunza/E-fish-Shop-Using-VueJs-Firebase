@@ -1,8 +1,8 @@
 <template>
 <div class="container-fluid">
-    <section id="page-header">
-       <h2>/Stayhome</h2>
-       <p> Save more with coupons & up to 70% off!</p>
+    <section  id="page-header" class="blog-header">
+       <h2 style="color:#040859; font-weight: 900">/Stayhome</h2>
+       <p style="color:#040859;font-weight: 500;"> Save more with coupons & up to 70% off!</p>
     </section>
     <div v-if="profileAdmin" class="toggle-edit">
       <span>Toggle Editing Product</span>

@@ -1,17 +1,17 @@
 <template>
   <div>
   <section v-if="!mobileNav" id="header" style="z-index: 999px">
-        <router-link to="/"><img src="@/assets/img/logo.png" style = "height:100px" class="logo" ></router-link>
+        <router-link to="/"><img src="@/assets/img/logo1.png" style = "height:100px" class="logo" ></router-link>
         <div>
             <ul id="navbar">
                 <li><router-link :to="{name: 'Home'}" >Home</router-link></li>
-                <li v-if="user"><router-link to="/shop">Shop</router-link></li>
+                <li ><router-link to="/shop">Shop</router-link></li>
                 <li><router-link to="/blog">Blog</router-link></li>
                 <li><router-link to="/about">About</router-link></li>
                 <li><router-link to="/contact">Contact</router-link></li>
                 <li v-if="admin"><router-link to="/administration">Administration</router-link></li>
                 <li v-if="!user"><router-link to="/signIn"> Sign In/Sign Up</router-link></li>
-                <li  v-if="user"><router-link to="/cart"><i class="fa-solid fa-cart-shopping"></i> <span> {{cartQuantity}} </span></router-link></li>
+                <li ><router-link to="/cart"><i class="fa-solid fa-cart-shopping"></i> <span> {{cartQuantity}} </span></router-link></li>
             </ul>
         </div>
         <div>
@@ -49,8 +49,8 @@
       </ul>
         </div>
         <div id="mobile" >
-            <div v-if="user" ><router-link to="/cart"><i class="fa-solid fa-cart-shopping"></i></router-link></div>
-            <div v-if="user"><span> {{cartQuantity}} </span></div>
+            <div ><router-link to="/cart"><i class="fa-solid fa-cart-shopping"></i></router-link></div>
+            <div ><span> {{cartQuantity}} </span></div>
             <button @click="toggleBox" class="btn" ref="btn"><i class="fa fa-bars"></i>Menu</button>
        </div>
   </section>
@@ -60,11 +60,11 @@
         <button class="close" ref="btn">close <i class="fa-solid fa-xmark"></i></button>
         <br>
         <li><router-link to="/">Home</router-link><hr></li>
-        <li v-if="user"><router-link to="/shop">Shop</router-link><hr></li>
+        <li><router-link to="/shop">Shop</router-link><hr></li>
         <li><router-link to="/blog">Blog</router-link><hr></li>
         <li><router-link to="/about">About</router-link><hr></li>
         <li><router-link to="/contact">Contact</router-link><hr></li>
-        <li v-if="admin"><router-link to="/administration">Administration</router-link></li>
+        <li ><router-link to="/administration">Administration</router-link></li>
         <li v-if="!user"><router-link to="/signIn"> Sign In/Sign Up</router-link></li>
       </ul>
     </transition>

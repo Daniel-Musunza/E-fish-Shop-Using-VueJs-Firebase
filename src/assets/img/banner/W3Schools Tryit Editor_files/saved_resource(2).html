@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://www.w3schools.com/js/tryit.asp?filename=tryjs_default -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body contenteditable="false">
+
+<h1>QR CODE</h1>
+
+<button onclick="myFunction()">Click Me!</button>
+<div id="qr"></div>
+
+<script>
+function myFunction() {
+  const QRCode = require('qrcode')
+
+const opts = {
+    errorCorrectionLevel: 'H', 
+    type: 'terminal',
+    quality: 0.95,
+    margin: 1,
+    color: {
+        dark: '#208698',
+        light: '#FFF',
+    },
+}
+const qrImage = QRCode.toString('Hi testing QR code', opts)
+let x = document.getElementById("qr");
+x = qrImage;
+}
+</script>
+
+
+
+</body></html>

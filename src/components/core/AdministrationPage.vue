@@ -10,12 +10,12 @@
         </div>
         <div class="blog-info">
           <div>
-          <label for="title">Enter Product Name</label>
+          <label for="title">Enter Type of Fish</label>
           <input type="text" v-model="productTitle" style="width:120px"/>
           </div>
           <div>
-          <label for="brand">Enter Product Brand</label>
-          <input type="text" v-model="productBrand" style="width:110px"/>
+          <label for="brand">Enter Location</label>
+          <input type="text" v-model="productLocation" style="width:110px"/>
           </div>
           <div class="price" >
           <label for="price" >Price</label>
@@ -31,54 +31,30 @@
             <span>File Chosen: {{ this.$store.state.productPhotoName }}</span>
           </div>
           <div class="price">
-          <label>Add Product Details</label>
+          <label>Something About the Fish</label>
           <textarea name="" id="" min-cols="70" rows="2" plaaceholder="Enter Product Details"  v-model="productDetails"></textarea>
           </div>
-       <!-- <div class="upload-file">
-            <label  for="product-photos" >Upload Other Product Images</label>
-            <input type="file" ref="productPhotos" id="product-photos" @change="uploadImage" accept=".png, .jpg, .jpeg" style = "display: none;"/>
-       </div> 
-       <div class="form-group d-flex">
-        <label>Files Chosen:</label>
-          <div class="p-1" v-for="(image, index) in images" :key="index">
-            <div class="img-wrapp">
-               <img :src="image" alt="" width="10px">
-              </div>
-          </div>
-       </div> -->
       </div>
         <div class="blog-actions">
-      <div id="items" class="uploadShoes">
-        <input class="box" type="checkbox" v-model="shoes" />
-        <label for="uploadShoes">Add Footware Collection</label>
-      </div>
-      <div id="items" class="uploadMegaSeasonSale">
-        <input class="box" type="checkbox" v-model="megaSeasonSale" />
-        <label for="uploadMegaSeasonSale">Add To Season Sale</label>
-      </div>
       <div id="items" class="uploadRepair">
         <input class="box" type="checkbox" v-model="repair" />
-        <label for="uploadRepair">Add To Repair</label>
+        <label for="uploadRepair">Cooked Fish</label>
       </div>
       <div id="items" class="uploadUpcommingSeason">
         <input class="box" type="checkbox" v-model="upcommingSeason" />
-        <label for="uploadUpcommingSeason">Add To Upcomming Season</label>
+        <label for="uploadUpcommingSeason">Dagaa</label>
       </div>
       <div id="items" class="uploadBuyOneFree">
         <input class="box" type="checkbox" v-model="buyOneFree" />
-        <label for="uploadBuyOneFree">Add To Buy 1 get 1 Free</label>
-      </div>
-      <div id="items" class="uploadTshirt">
-        <input class="box" type="checkbox" v-model="tshirt" />
-        <label for="uploadTshirt">Add To T-Shirts</label>
+        <label for="uploadBuyOneFree"> Buy 1 get 1 Free</label>
       </div>
       <div id="items" class="uploadFeaturedProducts">
         <input class="box" type="checkbox" v-model="featuredProducts" />
-        <label for="uploadFeaturedProducts"> Add To Featured Products</label>
+        <label for="uploadFeaturedProducts"> Featured Product</label>
       </div>
           <button @click="uploadProduct" style="background-color: green" >Add Inventoty</button>
         </div>
-      </div>7
+      </div>
     </div>
     </div>
   </template>
@@ -98,12 +74,9 @@
           errorMsg: null,
           loading: null,
           uploading: null,
-          tshirt: null,
           buyOneFree: null,
-          upcommmingSeason: null,
-          repair: null,
-          megaSeasonSale: null,
-          shoes: null,
+          dagaa: null,
+          cookedFish: null,
           featuredProducts: null,
             // images: [],
   
@@ -136,58 +109,6 @@
         openProductPreview() {
           this.$store.commit("openProductPhotoPreview");
         },
-        uploadTshirt() {
-          if (this.productTitle.length !== 0 || this.productPrice.length !== 0) {
-            if (this.file) {
-              this.loading = true;
-              const storageRef = firebase.storage().ref();
-              const docRef = storageRef.child(`documents/ProductCoverPhotos/${this.$store.state.productPhotoName}` );
-              docRef.put(this.file).on(
-                "state_changed",
-                (snapshot) => {
-                  console.log(snapshot);
-                },
-                (err) => {
-                  console.log(err);
-                  this.loading = false;
-                },
-                async () => {
-                  const downloadURL = await docRef.getDownloadURL();
-                  const timestamp = await Date.now();
-                  let dataBase = await db.collection("tshirts").doc();
-                  await dataBase.set({
-                    productID: dataBase.id,
-                    productCoverPhoto: downloadURL,
-                    productCoverPhotoName: this.productCoverPhotoName,
-                    // productImagesNames: this.productImagesNames,
-                    productTitle: this.productTitle,
-                    productPrice: this.productPrice,
-                    productBrand: this.productBrand,
-                    productDetails: this.productDetails,
-                    profileId: this.profileId,
-                    date: timestamp,
-                  });
-                  await this.$store.dispatch("tshirts");
-                  this.loading = false;
-                  this.$router.push({ name: "t-shirts", params: { productid: dataBase.id } });
-                }
-              );
-              return;
-            }
-            this.error = true;
-            this.errorMsg = "Please ensure you uploaded a product photo!";
-            setTimeout(() => {
-              this.error = false;
-            }, 5000);
-            return;
-          }
-          this.error = true;
-          this.errorMsg = "Please ensure product name has been filled!";
-          setTimeout( () => {
-            this.error = false;
-          }, 5000);
-          return;
-        },
         uploadFeaturedProducts() {
             if (this.file) {
               this.loading = true;
@@ -213,7 +134,7 @@
                     // productImagesNames: this.productImagesNames,
                     productTitle: this.productTitle,
                     productPrice: this.productPrice,
-                    productBrand: this.productBrand,
+                    productLocation: this.productLocation,
                     productDetails: this.productDetails,
                     profileId: this.profileId,
                     date: timestamp,
@@ -250,7 +171,7 @@
                     // productImagesNames: this.productImagesNames,
                     productTitle: this.productTitle,
                     productPrice: this.productPrice,
-                    productBrand: this.productBrand,
+                    productLocation: this.productLocation,
                     productDetails: this.productDetails,
                     profileId: this.profileId,
                     date: timestamp,
@@ -276,7 +197,7 @@
           }, 5000);
           return;
         },
-        uploadUpcommingSeason() {
+        uploadDagaa() {
           if (this.productTitle.length !== 0 || this.productPrice.length !== 0) {
             if (this.file) {
               this.loading = true;
@@ -302,7 +223,7 @@
                     // productImagesNames: this.productImagesNames,
                     productTitle: this.productTitle,
                     productPrice: this.productPrice,
-                    productBrand: this.productBrand,
+                    productLocation: this.productLocation,
                     productDetails: this.productDetails,
                     profileId: this.profileId,
                     date: timestamp,
@@ -328,7 +249,7 @@
           }, 5000);
           return;
         },
-        uploadRepair() {
+        uploadCookedFish() {
           if (this.productTitle.length !== 0 || this.productPrice.length !== 0) {
             if (this.file) {
               this.loading = true;
@@ -354,7 +275,7 @@
                     // productImagesNames: this.productImagesNames,
                     productTitle: this.productTitle,
                     productPrice: this.productPrice,
-                    productBrand: this.productBrand,
+                    productLocation: this.productLocation,
                     productDetails: this.productDetails,
                     profileId: this.profileId,
                     date: timestamp,
@@ -380,133 +301,20 @@
           }, 5000);
           return;
         },
-        uploadMegaSeasonSale() {
-          if (this.productTitle.length !== 0 || this.productPrice.length !== 0) {
-            if (this.file) {
-              this.loading = true;
-              const storageRef = firebase.storage().ref();
-              const docRef = storageRef.child(`documents/ProductCoverPhotos/${this.$store.state.productPhotoName}` );
-              docRef.put(this.file).on(
-                "state_changed",
-                (snapshot) => {
-                  console.log(snapshot);
-                },
-                (err) => {
-                  console.log(err);
-                  this.loading = false;
-                },
-                async () => {
-                  const downloadURL = await docRef.getDownloadURL();
-                  const timestamp = await Date.now();
-                  let dataBase = await db.collection("megaSeasonSale").doc();
-                  await dataBase.set({
-                    productID: dataBase.id,
-                    productCoverPhoto: downloadURL,
-                    productCoverPhotoName: this.productCoverPhotoName,
-                    // productImagesNames: this.productImagesNames,
-                    productTitle: this.productTitle,
-                    productPrice: this.productPrice,
-                    productBrand: this.productBrand,
-                    productDetails: this.productDetails,
-                    profileId: this.profileId,
-                    date: timestamp,
-                  });
-                  await this.$store.dispatch("megaSeasonSale");
-                  this.loading = false;
-                  this.$router.push({ name: "mega-season-sale", params: { productid: dataBase.id } });
-                }
-              );
-              return;
-            }
-            this.error = true;
-            this.errorMsg = "Please ensure you uploaded a product photo!";
-            setTimeout(() => {
-              this.error = false;
-            }, 5000);
-            return;
-          }
-          this.error = true;
-          this.errorMsg = "Please ensure product name has been filled!";
-          setTimeout( () => {
-            this.error = false;
-          }, 5000);
-          return;
-        },
-        uploadShoes() {
-          if (this.productTitle.length !== 0 || this.productPrice.length !== 0) {
-            if (this.file) {
-              this.loading = true;
-              const storageRef = firebase.storage().ref();
-              const docRef = storageRef.child(`documents/ProductCoverPhotos/${this.$store.state.productPhotoName}` );
-              docRef.put(this.file).on(
-                "state_changed",
-                (snapshot) => {
-                  console.log(snapshot);
-                },
-                (err) => {
-                  console.log(err);
-                  this.loading = false;
-                },
-                async () => {
-                  const downloadURL = await docRef.getDownloadURL();
-                  const timestamp = await Date.now();
-                  let dataBase = await db.collection("shoes").doc();
-                  await dataBase.set({
-                    productID: dataBase.id,
-                    productCoverPhoto: downloadURL,
-                    productCoverPhotoName: this.productCoverPhotoName,
-                    // productImagesNames: this.productImagesNames,
-                    productTitle: this.productTitle,
-                    productPrice: this.productPrice,
-                    productBrand: this.productBrand,
-                    productDetails: this.productDetails,
-                    profileId: this.profileId,
-                    date: timestamp,
-                  });
-                  await this.$store.dispatch("shoes");
-                  this.loading = false;
-                  this.$router.push({ name: "shoes", params: { productid: dataBase.id } });
-                }
-              );
-              return;
-            }
-            this.error = true;
-            this.errorMsg = "Please ensure you uploaded a product photo!";
-            setTimeout(() => {
-              this.error = false;
-            }, 5000);
-            return;
-          }
-          this.error = true;
-          this.errorMsg = "Please ensure product name has been filled!";
-          setTimeout( () => {
-            this.error = false;
-          }, 5000);
-          return;
-        },
         uploadProduct() {
           if (this.productTitle.length !== 0 || this.productPrice.length !== 0) {
             if (this.file) {
-                   if(this.tshirt){
-                      this.uploadTshirt();
-                    }
                     if(this.buyOneFree){
                       this.uploadBuyOneFree();
                     }
-                    if(this.upcommingSeason){
-                      this.uploadUpcommingSeason();
-                    }
-                    if(this.repair){
-                      this.uploadRepair();
-                    }
-                    if(this.megaSeasonSale){
-                      this.uploadMegaSeasonSale();
-                    }
-                    if(this.shoes){
-                      this.uploadShoes();
+                    if(this.dagaa){
+                      this.uploadDagaa();
                     }
                     if(this.featuredProducts){
                       this.uploadFeaturedProducts();
+                    }
+                    if(this.cookedFish){
+                      this.uploadCookedFish();
                     }
               this.loading = true;
               const storageRef = firebase.storage().ref();
@@ -531,7 +339,7 @@
                     // productImagesNames: this.productImagesNames,
                     productTitle: this.productTitle,
                     productPrice: this.productPrice,
-                    productBrand: this.productBrand,
+                    productLocation: this.productLocation,
                     productDetails: this.productDetails,
                     profileId: this.profileId,
                     date: timestamp,
@@ -559,73 +367,6 @@
           }, 5000);
           return;
         },
-
-//         uploadImageAsPromise (file) {
-//     const self = this;
-
-//         return new Promise(function () {
-//             var storageRef = firebase.storage().ref("documents/ProductPhotos/"+file.name);
-
-//             //Upload file
-//             var task = storageRef.put(file);
-
-
-//             //Update progress bar
-//             task.on('state_changed',
-//                 function progress(snapshot){
-
-//                     var percentage = snapshot.bytesTransferred / snapshot.totalBytes * 100;
-//                     console.log("percentage" + percentage)
-//                     self.progressUpload = percentage;
-//                 },
-//                 function error(err){
-//                     console.log(err)
-//                 },
-//                 function complete(){
-//                     console.log("done")
-//                     // var downloadURL = task.snapshot.downloadURL;
-//                     task.snapshot.ref.getDownloadURL().then((downloadURL) => {
-//               this.product.images.push(downloadURL);
-//             }
-//             )}
-//             );
-//         });
-// },
-
-//     uploadImage(){
-
-//             for (var i = 0; i < this.images.length; i++) {
-//               this.uploadImageAsPromise ();          
-//             }
-      // if(e.target.files[0]){
-        
-      //     let file = e.target.files[0];
-    
-      //     var storageRef = firebase.storage().ref('documents/ProductPhotos/'+ 'photo' + 1++ );
-    
-      //     let uploadTask  = storageRef.put(file);
-    
-      //     uploadTask.on('state_changed', (snapshot) => {
-      //       console.log(snapshot);
-      //     }, (err) => {
-      //       console.log(err);
-      //       // Handle unsuccessful uploads
-      //     }, (snapshot) => {
-      //       console.log(snapshot);
-      //       // Handle successful uploads on complete
-      //       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-            
-      //       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-      //         this.product.images.push(downloadURL);
-      //       });
-      //     });
-      // }
-    // },
-    // reset(){
-    //   this.product = {
-    //       images:[]
-    //   }
-    // },
  },
       computed: {
         profileId() {
@@ -661,12 +402,12 @@
             this.$store.commit("updateProductDetails", payload);
           },
         },
-        productBrand: {
+        productLocation: {
           get() {
-            return this.$store.state.productBrand;
+            return this.$store.state.productLocation;
           },
           set(payload) {
-            this.$store.commit("updateProductBrand", payload);
+            this.$store.commit("updateProductLocation", payload);
           },
         },
       },

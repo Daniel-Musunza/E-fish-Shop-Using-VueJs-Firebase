@@ -4,12 +4,12 @@ import "firebase/storage"
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyD7Tc_Asec0wlVwtiNFJmd0R31aoq0ZiBo",
-    authDomain: "the-online-boutique.firebaseapp.com",
-    projectId: "the-online-boutique",
-    storageBucket: "the-online-boutique.appspot.com",
-    messagingSenderId: "623142084824",
-    appId: "1:623142084824:web:90f6caa1fea0c2e69437ad"
+  apiKey: "AIzaSyDT4-5LetHVVg8gEqXHFmRS8pUPNV-CGiU",
+  authDomain: "blue-economy-c98d6.firebaseapp.com",
+  projectId: "blue-economy-c98d6",
+  storageBucket: "blue-economy-c98d6.appspot.com",
+  messagingSenderId: "612934762026",
+  appId: "1:612934762026:web:f77bf77c82c6aa64454d53",
   };
 
   const firebaseApp = firebase.initializeApp(firebaseConfig);

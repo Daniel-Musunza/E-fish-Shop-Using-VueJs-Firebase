@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "the-online-boutique"
-  }
+    "default": "blue-economy-c98d6",
+    "blue-economy": "blue-economy-c98d6"
+  },
+  "targets": {},
+  "etags": {}
 }

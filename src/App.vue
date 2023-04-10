@@ -33,7 +33,7 @@
     <div  v-if="!user"><a href="#signIn"> Sign In</a></div>
     <router-link  v-if="user" to="/cart"> View Cart</router-link>
     <router-link v-if="user" to="/wishlist"> My Wishlist</router-link>
-    <router-link v-if="user" to="/"> Track My Order</router-link>
+    <router-link v-if="user" to="/http://localhost/GO-Courier/parcel_tracker.php"> Track My Order</router-link>
     <router-link to="/contact"> Help</router-link>
 </div>
 <div v-if="admin" class="col install">
@@ -50,7 +50,7 @@
     </div>
 </div>
 <div class="copyright">
-     <p> © 2022, The Online Boutique</p>
+     <p> © 2022, Samaki Online</p>
 </div>
     </footer>
 </div>

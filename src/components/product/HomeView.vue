@@ -1,20 +1,19 @@
 <template>
  <div>
-   <NotUser v-if="modalActive" :signInMessage="signInMessage" v-on:close-modal="closeModal"
-  />
+
 <div class="container-fluid">
-   <section id="hero">
-       <h4>Trade-in-offer</h4>
-       <h2>Super Value Deals</h2>
-       <h1>On all Products</h1>
-       <p> Save more with coupons & up to 70% off!</p>
-       <router-link @click="notUser()" to='/shop' class="btn">
-       <button>Shop now</button>
+   <section id="hero" style="font-weight: 500px">
+       <h4  style="font-weight: 900" >Trade-in-offer</h4>
+       <h2 style="font-weight: 900">Fresh Fish Deals</h2>
+       <h1 style="font-weight: 900; color: #fff">On all Types of Fish</h1>
+       <p style="font-weight: 900"> Save more with coupons & up to 70% off!</p>
+       <router-link to='/shop' class="btn">
+       <button style="font-weight: 900">Shop now</button>
        </router-link>
     </section>
     <div class="feature-heading">
         <h2> We care For you</h2>
-        <p>Here are some of our best Services</p>
+        <p>Here is what we have prepared for you</p>
     </div>
     <section id="feature" class="section-p1">
         <div class="fe-box">
@@ -26,15 +25,15 @@
             <h6>Online Order</h6>
         </div>
         <div class="fe-box">
-            <img src="@/assets/img/features/promotions.jpg" alt="">
+            <img src="@/assets/img/features/promotions.jpg" alt="" width="150px">
             <h6>Promotions</h6>
         </div>
         <div class="fe-box">
-            <img src="@/assets/img/features/happySale1.jpg" alt="">
+            <img src="@/assets/img/features/happySale.jpg" alt="" width="150px">
             <h6>Happy Sale</h6>
         </div>
         <div class="fe-box">
-            <img src="@/assets/img/features/saveMoney.jpg" alt="">
+            <img src="@/assets/img/features/saveMoney.jpg" alt="" width="150px">
             <h6>Save Money</h6>
         </div>
         <div class="fe-box">
@@ -43,11 +42,10 @@
         </div>
     </section>
     <section id ="product1" class="section-p1">
-        <h2> Featured Products</h2>
-        <p>Summer collection New Morden Design</p>
+        <h2> Featured Types of Fish and  Other Sea Creatures</h2>
         <div class="pro-container" style="display:flex">
            <ProductListItem
-           @click="notUser()"
+         
            :productItem="productItem"
            v-for="(productItem, index) in featuredProducts"
            :key="index"
@@ -55,17 +53,17 @@
         </div>
     </section>
     <section id="banner" class="section-m1">
-        <h4>Repair Services </h4>
-        <h2>Up to <span>70% off</span>-All t-shirts & Assessories</h2>
-        <router-link @click="notUser()" to="/repair"><button class="normal"> Explore More</button> </router-link>
+        <h4>Fried Fish </h4>
+        <h2>Up to <span>70% off</span>-All Kinds of Fish and other Sea Creatures</h2>
+        <router-link  to="/cookedFish"><button class="normal"> Explore More</button> </router-link>
 
     </section>
     <section id="product1" class="section-p1">
         <h2>New Arrivals</h2>
-        <p>Summer collection New Morden Design</p>
+        <p>Your Vacation Taste</p>
         <div class="pro-container" style="display: flex;">
            <ProductListItem
-           @click="notUser()"
+        
            :productItem="productItem"
            v-for="(productItem, index) in productItems.slice(0, 8)"
            :key="index"
@@ -76,36 +74,15 @@
     <div class="banner-box" style="width: 500px;">
     <h4>crazy deals</h4>
     <h2>Buy 1 get 1 Free</h2>
-    <span> The  best classic dress is on sale at cara</span>
-    <router-link @click="notUser()" to="/buy-one-free"><button class="white">Learn More</button> </router-link>
+    <span> The big Fish is on sale</span>
+    <router-link  to="/buy-one-free"><button class="white">Learn More</button> </router-link>
     </div>
     <div class="banner-box banner-box2"  style="width: 500px;">
     <!-- <h4>Spring/summer</h4> -->
-    <h2>upcomming season</h2>
-    <span> The best classic dress is on sale at cara</span>
-    <router-link  @click="notUser()" to="/upcomming-season"><button class="white">Collection</button></router-link>
+    <h2>Omena(Dagaa)</h2>
+    <span> Fresh Omena is on sale</span>
+    <router-link   to="/dagaa"><button class="white">Collection</button></router-link>
     </div>
-</section>
-<section id="banner3">
-    <router-link @click="notUser()" to="/mega-season-sale">
-        <div class="banner-box">
-        <!-- <h3>winter collection</h3> -->
-        </div>
-    </router-link>
-
-    <router-link @click="notUser()" to="/shoes">
-        <div class="banner-box banner-box2">
-        <!-- shoes -->
-        <!-- <h3>Spring/Summer</h3> -->
-        </div>
-    </router-link>
-
-    <router-link @click="notUser()" to="/t-shirts">
-        <div class="banner-box banner-box3">
-            <h2>T-Shirts</h2>
-            <h3>New Trendy Prints</h3>
-        </div>
-    </router-link>
 </section>
 <section id="newsletter" class="section-p1 section-m1">
     <div class="newstext">
@@ -123,27 +100,21 @@
 </template>
 <script>
 import Product_List_Item from './Product_List_Item'
-import NotUser from "@/components/NotUser"
+
 export default {
   name: "HomeView",
   data() {
          return {
-            // user: null,
-            signInMessage: "",
+    
             modalActive: false,
          }
      },
   components: {
     ProductListItem:Product_List_Item,
-    NotUser,
+
   },
   methods: {
-    notUser() {
-        if (!this.user){
-        this.modalActive = true,
-        this.signInMessage = "Please sign in to access Our Inventory";
-        }
-    },
+ 
     closeModal() {
         this.modalActive = !this.modalActive;
         this.email = "";

@@ -11,7 +11,7 @@
         <router-link :to="{ name: 'sproduct', params: { productid: this.productItem.productID }}">
             <img :src="productItem.productCoverPhoto">
             <div class="des">
-                <span>{{productItem.productBrand }}</span>
+                <span>at {{productItem.productLocation }}</span>
                 <h5>{{productItem.productTitle }}</h5>
                 <div class="star">
                     <i class="fas fa-star"></i>
@@ -23,7 +23,7 @@
                 <h4>Ksh {{productItem.productPrice}}</h4>
             </div>
         </router-link>
-        <button v-if="user"
+        <button 
           @click="
           addToCart(productItem)
           "

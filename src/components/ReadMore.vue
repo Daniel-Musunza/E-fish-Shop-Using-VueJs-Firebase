@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <section id="page-header" class="blog-header">
             <h2>/readmore</h2>
-            <p> Read all case studies about our products!</p>
+            <p> Read all case studies about Fish and Fishing!</p>
         </section>
         <section id="blog">
             <div v-if="profileAdmin" class="toggle-edit">

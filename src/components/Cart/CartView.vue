@@ -11,8 +11,8 @@
                 <thead>
                   <tr>
                     <th scope="col" class="h5">Shopping Cart</th>
-                    <th scope="col">Size</th>
-                    <th scope="col">Quantity</th>
+                    <!-- <th scope="col">Size</th> -->
+                    <th scope="col">Quantity (In Kgs)</th>
                     <th scope="col">Price</th>
                   </tr>
                 </thead>
@@ -31,12 +31,12 @@
                             {{ productItem.productTitle }}
                           </p>
                           <p class="mb-0">
-                            {{ productItem.productBrand }}
+                            {{ productItem.productLocation }}
                           </p>
                         </div>
                       </div>
                     </th>
-                    <td class="align-middle border-bottom-0">
+                    <!-- <td class="align-middle border-bottom-0">
                       <div class="d-flex flex-row">
                         <select
                           v-model="productItem.productSize"
@@ -54,7 +54,7 @@
                           <option value="Large">Large</option>
                         </select>
                       </div>
-                    </td>
+                    </td> -->
                     <td class="align-middle border-bottom-0">
                       <div class="d-flex flex-row">
                         <button
@@ -149,7 +149,6 @@
                     </div>
                   </button>
                 </router-link>
-                  <!-- v-if="user == null" -->
                 </div>
               </div>
             </div>
